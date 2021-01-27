@@ -16,7 +16,6 @@ const Todo = ({content,todo, todos,setTodos}) => {
         return item
     }))
     }
-    
     return(
         <div className={styles.todo}>
             <div className={styles.leftPart}>
