@@ -3,17 +3,17 @@ import styles from "../styles/todolist.module.scss";
 import Todo from "./Todo"
 
 
-const TodoList = ({todos , setTodos}) => {
+const TodoList = ({todos , setTodos, filteredTodos}) => {
     return(
         <div className="todo-container">
             <ul className={styles.todoList}>
-                {todos.map(todo => (
+                {filteredTodos.map(todo => (
                     <Todo 
                     setTodos={setTodos}
                     todos={todos}
                     todo={todo}
                     content={todo.content} 
-                    id={todo.id} 
+                    key={todo.id} 
                     completed={todo.completed}/>
                 ))}
             </ul>

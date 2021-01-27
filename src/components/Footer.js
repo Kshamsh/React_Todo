@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from "../styles/footer.module.scss"
 
-const Footer = ({todos}) => {
-    
+const Footer = ({todos,setTodos,setCurrentStatus}) => {
+   const removeCompletedFunc = ()=> {
+      setTodos(todos.filter((el) =>  el.completed !== true ))
+   }
+   const statusFunc = (e) =>{
+     setCurrentStatus(e.target.value)
+   }
   return(
         <footer className={styles.hide}>
         <div>
@@ -10,11 +15,13 @@ const Footer = ({todos}) => {
           items left
         </div>
         <div className="display">
-          <button  className={styles.btn}>All</button>
-          <button  className={styles.btn}>Active</button>
-          <button  className={styles.btn}>Completed</button>
+          <button onClick={statusFunc} className={styles.btn}value="All">All</button>
+
+          <button onClick={statusFunc} className={styles.btn}value="Active">Active</button>
+
+          <button onClick={statusFunc} className={styles.btn}value="Completed">Completed</button>
         </div>
-        <button  className={styles.btn}>Clear completed</button>
+        <button onClick={removeCompletedFunc} className={styles.btn}>Clear completed</button>
       </footer>
     )
 }
