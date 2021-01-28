@@ -8,11 +8,10 @@ const Footer = ({todos,setTodos,setCurrentStatus}) => {
    const statusFunc = (e) =>{
      setCurrentStatus(e.target.value)
    }
-   
   return(
         <footer className={styles.hide}>
         <div>
-          <span id="total"></span>
+          <span id="total">{todos.filter(todo => todo.completed === false).length} </span>
           items left
         </div>
         <div className="display">

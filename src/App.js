@@ -9,7 +9,6 @@ function App() {
   const [todos,setTodos] = useState([])
   const [currentStatus,setCurrentStatus] = useState("All")
   const [filteredTodos, setFilteredTodos] = useState([])
-  const [count,setCount] = useState(0)
 
   const filterFunc = () => {
     switch (currentStatus) {
@@ -25,7 +24,7 @@ function App() {
     }
   };
   useEffect(()=>{
-    filterFunc()},[todos,currentStatus])
+    filterFunc()},[ todos , currentStatus])
 
   return (
     <div className={styles.wrapper}>
@@ -46,8 +45,6 @@ function App() {
           <Footer 
           setTodos={setTodos} 
           todos={todos}
-          count={count}
-          setCount={setCount}
           setCurrentStatus={setCurrentStatus}
           />
         </div> 
